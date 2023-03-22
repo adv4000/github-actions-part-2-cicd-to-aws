@@ -23,7 +23,9 @@ on:
 jobs:
   my_ci_part:
     runs-on: ubuntu-latest
-
+    permissions:
+      id-token: write
+      contents: read
     steps:
     - name: Git clone our repo
       uses: actions/checkout@v3
