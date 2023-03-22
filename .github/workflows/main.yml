@@ -30,7 +30,9 @@ jobs:
     - name: Create ZIP deployment package
       run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
     - name: ECHO SECRET
-      run: echo ${{ secrets.VASYA }}
+      env:
+        tter: ${{ secrets.VASYA }}
+      run: echo $tter
     - name: Configure my AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
